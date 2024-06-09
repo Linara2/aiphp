@@ -120,17 +120,22 @@
                       <label class="form-check-label" for="female">Female</label>
                     </div>
                   </div>
-
                   <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="terms">
                     <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
                   </div>
-                  
+                  <div class="center-btn">
                     <button type="submit" class="btn btn-outline-primary"
                             style="--bs-btn-padding-y: 10px; --bs-btn-padding-x: 70px; --bs-btn-font-size: 16px;">
                       Register
-                    </button>      
+                    </button>
+                  </div>      
                 </form>
+                <?php
+              if (isset($_GET['error']) && $_GET['error'] == 'duplicate') {
+                echo '<div class="alert alert-danger mt-3" role="alert">User with this email already exists!</div>';
+              }
+            ?>
               </div>
             </div>
 

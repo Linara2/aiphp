@@ -48,7 +48,8 @@ if ($conn->query($sql) === TRUE) {
     echo "Registration successful!";
 } else {
     if ($conn->errno == 1062) {
-        echo "Email already exists";
+        header("Location: register.php?error=duplicate");
+        exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
