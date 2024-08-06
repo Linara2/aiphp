@@ -1,28 +1,49 @@
 <?php
 session_start();
 
-// Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-echo "Reached dblogin.php<br>";
-
-if (isset($_POST['email']) && isset($_POST['pass'])) {
     $uname = $_POST['email'];
     $pass = $_POST['pass'];
-    
-    echo "Email: $uname<br>";
-    echo "Password: $pass<br>";
 
     if ($uname === "admin@gmail.com" && $pass === "admin2024") {
         $_SESSION['adminloggedin'] = true;
         header('Location: usersList.php');
         exit();
-    } else {
-        echo "Invalid username or password.<br>";
-    }
-} else {
-    echo "Please enter username and password.<br>";
 }
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "aiphp";
+
+    // Prepare and execute the SQL query to fetch the user details
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $stmt = $conn->prepare("SELECT * FROM employee WHERE email = ?");
+    $stmt->bind_param("s", $uname);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if the user exists
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        // Verify the password
+        if ($user['Password']===$pass) {
+            // Redirect to the desired page
+            $_SESSION['userloggedin'] = $uname;
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            // Invalid password
+            header("Location: login.php?error");
+            exit();
+        }
+    } else {
+        // Invalid email or user does not exist
+        header("Location: login.php?error");
+        exit();
+    }
+
+    // Close the database connection
+    $stmt->close();
+    $conn->close();
+
 ?>
