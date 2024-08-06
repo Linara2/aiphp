@@ -59,7 +59,7 @@
                 max-width: 600px;
                 margin: 30px auto;
                 padding: 30px;
-                border: 4px solid #020202;
+                border: 2px solid #020202;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -82,11 +82,11 @@
           <body>
             <div class="bg-gradient">
               <div class="container custom-container">
-                <h1 class="text-center">Registration Form</h1>
+                <h1 class="text-center" style="font-weight: 700;">Registration Form</h1>
                 <form action="dbregister.php" method="POST">
                   <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                    <input type="email" class="form-control" style="width: 320px;" id="email" aria-describedby="emailHelp" name="email">
                     
                   </div>
                   <div class="mb-3">
@@ -133,7 +133,7 @@
                 </form>
                 <?php
               if (isset($_GET['error']) && $_GET['error'] == 'duplicate') {
-                echo '<div class="alert alert-danger mt-3" role="alert">User with this email already exists!</div>';
+                echo '<div class="alert alert-danger mt-3" role="alert">User already exists!</div>';
               }
             ?>
               </div>

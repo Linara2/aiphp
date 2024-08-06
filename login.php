@@ -59,7 +59,7 @@
                 max-width: 800px;
                 margin: 30px auto;
                 padding: 30px;
-                border: 4px solid #020202;
+                border: 2px solid #020202;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -82,26 +82,26 @@
           <body>
             <div class="bg-gradient">
               <div class="container custom-container">
-                <h1 class="text-center">Sign In</h1>
-                <form>
+                <h1 class="text-center" style="font-weight: 700;">Sign In</h1>
+                <form action="dblogin.php" method="POST">
                   <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" style="width: 320px;" id="email" aria-describedby="emailHelp">
                     
                   </div>
                   <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="password">
+                    <input type="text" name="pass" class="form-control" id="password">
                   </div>
                   
                   <div class="center-btn">
                     <button type="button" class="btn btn-outline-primary"
-                            style="--bs-btn-padding-y: 10px; --bs-btn-padding-x: 70px; --bs-btn-font-size: 16px;">
+                            style="--bs-btn-padding-y: 10px; --bs-btn-padding-x: 70px; --bs-btn-font-size: 16px; margin-top: 10px;">
                       Login
                     </button>
                   </div>
                 </form>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6TZ91Y9DLEo8Y9Xa7rZqf9xBsgGYbU1sCy9hB6u2awLTbxyZERsS97QjP4Y" crossorigin="anonymous"></script>
+               
       </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
