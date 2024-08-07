@@ -45,10 +45,10 @@
             </ul>
           <div class="d-grid gap-4 d-md-flex justify-content me-md-4">
             <?php
-            if (basename($_SERVER['PHP_SELF']) === 'register.php') {
-                echo '<a class="btn btn-dark btn-login" href="../register.php">Register</a>';
+            if (basename($_SERVER['PHP_SELF']) === 'logout.php') {
+                echo '<a class="btn btn-dark btn-logout" href="../logout.php">Logout</a>';
             }else{
-                echo '<a class="btn btn-outline-dark btn-register" href="../register.php">Register</a>';
+                echo '<a class="btn btn-outline-dark btn-logout" href="../logout.php">Logout</a>';
             }
             ?>
 

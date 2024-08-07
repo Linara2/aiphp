@@ -38,10 +38,10 @@
             </ul>
           <div class="d-grid gap-4 d-md-flex justify-content me-md-4">
             <?php
-            if (basename($_SERVER['PHP_SELF']) === 'register.php') {
-                echo '<a class="btn btn-dark btn-login" href="../register.php">Register</a>';
+            if (basename($_SERVER['PHP_SELF']) === 'logout.php') {
+                echo '<a class="btn btn-dark btn-logout" href="../logout.php">Logout</a>';
             }else{
-                echo '<a class="btn btn-outline-dark btn-register" href="../register.php">Register</a>';
+                echo '<a class="btn btn-outline-dark btn-logout" href="../logout.php">Logout</a>';
             }
             ?>
 
@@ -67,7 +67,7 @@
           </head>
 
           <div class="container-md text-center mt-3" style="max-width: 850px;">
-            <div class="mb-5 hero-text" style="font-size: 50px;">Notes App</div>
+            <div class="mb-5 hero-text" style="font-size: 50px;">Tasks App</div>
 
         <form action="dbtasks.php" method="POST" class="row g-3">
             <div class="col-4">
