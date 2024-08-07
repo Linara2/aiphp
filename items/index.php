@@ -80,7 +80,7 @@
             <!-- <div class="mb-5 hero-text" style="font-size: 50px;">Notes App</div>
             <form action="dbtasks.php" method="POST" class="row g-3"> -->
             <div class="col-10">
-                <input type="text" class="form-control" id="title" name="description" placeholder="Description" required/>
+                <input type="text" class="form-control" id="title" style="margin-bottom: 20px; border-radius: 10px; border-color: black;" name="description" placeholder="Description" required/>
             </div>
             <div class="col-1">
             <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -154,13 +154,13 @@
                     // Fetch the rows
                     while ($row = $result->fetch_assoc()) {
                         // Display the data in table rows
-                        echo ('<li class="list-group-item fs-4 fw-light">
+                        echo ('<li class="list-group-item fs-5 fw-light">
         
-        <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['ItemId'] . '" onchange="updateStatus(' . $row['ItemId'] . ')"' . ($row['Status'] == '1' ? ' checked' : '') . '/>
+        <input class="form-check-input me-1" type="checkbox" style="border: 1px solid grey" value="" id="' . $row['ItemId'] . '" onchange="updateStatus(' . $row['ItemId'] . ')"' . ($row['Status'] == '1' ? ' checked' : '') . '/>
         <label class="form-check-label ' . ($row['Status'] == '1' ? 'text-decoration-line-through' : '') . '" for="' . $row['ItemId'] . '">' . $row["Description"] . '</label>
     ');
 
-                        echo " <a class='btn btn-outline-danger' href=" . "dbitems.php?delid=" . $row["ItemId"] . "&listname=" . $lname . "&cdate=" . $cdate . " >Delete</a> </li> ";
+                        echo " <a class='btn btn-outline-danger btn-sm float-end' href=" . "dbitems.php?delid=" . $row["ItemId"] . "&listname=" . $lname . "&cdate=" . $cdate . " >Delete</a> </li> ";
                     }
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -173,7 +173,7 @@
             </ul>
             </div>
     </div>
-
+    
     <!-- Item Status Update Function -->
     <script>
         function updateStatus(itemId) {
@@ -206,7 +206,6 @@ if (checkbox.checked) {
             xhr.send('itemId=' + itemId);
         }
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
