@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['userloggedin'])) {
+        header('Location: login.php');
+        exit();
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,7 +36,7 @@
                 <a class="nav-link" aria-current="page" href="register.php">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                <a class="nav-link active" aria-current="page" href="logout.php">Logout</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -52,12 +60,42 @@
                 justify-content: center;
                 padding: 5px 10px;
               }
+              .dash-card-text {
+                text-align: center;
+                color: #333;
+                font-size: 2rem;
+                margin-top: 1vh;
+                font-weight: 100;
+                text-decoration: none;
+              }
+              .dash-card{
+                text-decoration: none;
+                transition:all 0.5s;
+                margin-left: 20px;
+                margin-right: 35px;
+              }
+              .dash-card:hover{
+                box-shadow: 0 0 10px rgba(64, 79, 219, 0.5);
+                transform: scale(1.02);
+              }
               
             </style>
           </head>
 
           <div class="container-md text-center mt-5" style="max-width: 700px;">
             <div class="mb-4 hero-text" style="font-size: 50px;"> Employee Dashboard</div>
+            <div class="row">
+
+            <a class="col-4 dash-card card p-3 rounded-5" style="width: 18rem;" href="notes/index.php">
+            <img src="img/dash/notes.png" class="card-img-top" alt="..."/>
+            <h3 class="dash-card-text">Notes App</h3>
+            </a>
+            &ensp;
+            <a class="col-4 dash-card card p-3 rounded-5" style="width: 18rem;" href="tasks/index.php">
+            <img src="img/dash/task.png" class="card-img-top" alt="..."/>
+            <h3 class="dash-card-text">Tasks App</h3>
+            </a>
+      </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
